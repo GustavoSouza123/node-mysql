@@ -9,6 +9,15 @@ export const getNotes = (_req, res) => {
     });
 }
 
+export const getNote = (req, res) => {
+    const q = "SELECT * FROM notes WHERE id = ?";
+
+    db.query(q, [req.params.id], (err, data) => {
+        if(err) return res.json(err);
+        return res.status(200).json(data);
+    });
+}
+
 export const addNote = (req, res) => {
     const q = "INSERT INTO notes (title, content) VALUES (?)";
 
