@@ -33,7 +33,7 @@ export const addNote = (req, res) => {
     db.query(q, [values], (err) => {
         if(err) return res.json(err);
         return res.status(200).json("Note created successfully");
-    })
+    });
 }
 
 export const updateNote = (req, res) => {
